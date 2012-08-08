@@ -2,11 +2,10 @@ import os
 from util import *
 from matrix import *
 
-util = Util()
 matrix_input = []
 fobj = open("source.csv", "r")
 for line in fobj:
-	s = util.replace_string(line)
+	s = Util.replace_string(line)
 	matrix_input.append(s.split(";"))
 fobj.close()
 
@@ -24,6 +23,6 @@ print(matrix.get_row_count())
 print("Anzahl Spalten der Matrix:")
 print(matrix.get_col_count())
 print("Determinate der Matrix:")
-print(util.det(matrix.get_values()))
+print(Util.det(matrix.get_values()))
 
 
