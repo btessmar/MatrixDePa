@@ -17,4 +17,15 @@ class Util(object) :
             return prod * M.pop().pop()
         it = product(xrange(1,dim),repeat=2)
         prod *= float(M[0][0])
-        return Util.det([[float(M[x][y])-float(M[x][0])*(float(M[0][y])/float(M[0][0])) for x,y in islice(it,dim-1)] for i in xrange(dim-1)],prod)
+        new_matrix = []
+        for i in xrange(dim-1):
+            matrix_row = []
+            for x,y in islice(it,dim-1):
+                matrix_row.append(
+                    float(M[x][y])-float(M[x][0])*(float(M[0][y])/float(M[0][0]))
+                )
+            new_matrix.append(matrix_row)
+        return Util.det(new_matrix,prod)
+        
+        
+                
